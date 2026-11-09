@@ -1,0 +1,138 @@
+/* Your City skyline at the bottom of the footer. The sky follows Nepal time (data-phase); layers rise in with --draw (0 to 1). */
+.ktm {
+ --draw: 1;
+ position: relative;
+ overflow: hidden;
+ -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 38%);
+ mask-image: linear-gradient(to bottom, transparent 0, #000 38%);
+}
+.ktm-sky {
+ position: absolute;
+ inset: 0;
+ opacity: 0;
+ transition: opacity 2.4s ease;
+}
+.ktm[data-phase="dawn"] .ktm-sky-dawn,
+.ktm[data-phase="day"] .ktm-sky-day,
+.ktm[data-phase="dusk"] .ktm-sky-dusk,
+.ktm[data-phase="night"] .ktm-sky-night {
+ opacity: 1;
+}
+
+/* ---------- light theme ---------- */
+.ktm-sky-dawn { background: linear-gradient(180deg, #b7c3f2 0%, #e9c6dc 50%, #fbd3b4 100%); }
+.ktm-sky-day { background: linear-gradient(180deg, #bcd8f4 0%, #dcebfa 60%, #eef4f9 100%); }
+.ktm-sky-dusk { background: linear-gradient(180deg, #8f7fc4 0%, #e6a3b0 50%, #f8b98a 100%); }
+.ktm-sky-night { background: linear-gradient(180deg, #0c1226 0%, #18213d 65%, #222b4a 100%); }
+
+.ktm {
+ /* day */
+ --rock: #a9b8cc; --snow: #fbfdff; --shade: rgb(40 56 92 / 0.2); --haze: #e3eef9;
+ --hill: #7f9488; --wood: #6d8577; --back: #9aa5b3; --back-tank: #7d8897; --front: #4b5563; --front-tank: #374151;
+ --stupa: #f8fafc; --stupa-shade: #cbd5e1; --plinth: #b8a99a; --gold: #d9a21b; --gold-line: #a97a0c; --eyes: #1e3a8a;
+ --tower: #eef1f5; --temple: #8b4a35; --roof: #5b3a2e; --wire: rgb(31 41 55 / 0.55); --string: rgb(31 41 55 / 0.35);
+ --win: transparent; --lamp: transparent; --sun: #ffd60a; --cloud: rgb(255 255 255 / 0.85); --bird: rgb(31 41 55 / 0.55); --flag-op: 0.95;
+}
+.ktm[data-phase="dawn"] {
+ --rock: #b3a7c6; --snow: #ffe1e8; --shade: rgb(70 50 110 / 0.22); --haze: #f3d4d8;
+ --hill: #7d7488; --wood: #6c6478; --back: #988ba3; --back-tank: #7c6f88; --front: #4e4459; --front-tank: #3a3145;
+ --stupa: #fde9ec; --tower: #f6e4e8; --temple: #7d4436; --roof: #52352d;
+ --win: rgb(252 196 92 / 0.7); --lamp: #f9b26b; --sun: #ffb27a; --cloud: rgb(255 228 230 / 0.8); --bird: rgb(60 40 70 / 0.55);
+}
+.ktm[data-phase="dusk"] {
+ --rock: #9d88b2; --snow: #ffd2a6; --shade: rgb(60 30 90 / 0.28); --haze: #efb5a8;
+ --hill: #6a5577; --wood: #5d4a6a; --back: #7d6788; --back-tank: #634f70; --front: #3c2f48; --front-tank: #2b2136;
+ --stupa: #fde3d0; --tower: #f5dcd0; --temple: #6e3b33; --roof: #45302c;
+ --win: #fbbf24; --lamp: #fb923c; --sun: #fb8a3c; --cloud: rgb(255 214 200 / 0.75); --bird: rgb(50 30 60 / 0.6);
+}
+.ktm[data-phase="night"] {
+ --rock: #2b3555; --snow: #a9b7d6; --shade: rgb(5 10 30 / 0.4); --haze: #1f2946;
+ --hill: #1b2238; --wood: #19203a; --back: #161c30; --back-tank: #10152a; --front: #0d1120; --front-tank: #080b16;
+ --stupa: #c9d3e6; --stupa-shade: #8b98b6; --plinth: #3a3f52; --gold: #c99a3a; --gold-line: #8a6a28; --eyes: #0f172a;
+ --tower: #b8c3d9; --temple: #3a2a34; --roof: #241b24; --wire: rgb(148 163 184 / 0.3); --string: rgb(148 163 184 / 0.3);
+ --win: #fbbf24; --lamp: #f59e0b; --cloud: transparent; --flag-op: 0.55;
+}
+
+/* ---------- dark theme: the same scene, quieter ---------- */
+.dark .ktm-sky-dawn { background: linear-gradient(180deg, #1f1f23 0%, #3b3049 50%, #7a4c3c 100%); }
+.dark .ktm-sky-day { background: linear-gradient(180deg, #1f1f23 0%, #24324a 55%, #33496a 100%); }
+.dark .ktm-sky-dusk { background: linear-gradient(180deg, #1f1f23 0%, #432a40 50%, #7a3f2c 100%); }
+.dark .ktm-sky-night { background: linear-gradient(180deg, #1f1f23 0%, #10162a 55%, #151d36 100%); }
+.dark .ktm {
+ --rock: #44526d; --snow: #d5deeb; --shade: rgb(5 10 25 / 0.35); --haze: #2c3c57;
+ --hill: #253041; --wood: #222c3b; --back: #1f2633; --back-tank: #171c26; --front: #15191f; --front-tank: #0e1116;
+ --stupa: #dfe5ee; --stupa-shade: #9aa6b8; --plinth: #4a4a52; --gold: #d0a03a; --gold-line: #8d6a22; --eyes: #0f172a;
+ --tower: #cfd6e1; --temple: #4d2f2a; --roof: #2c1f1d; --wire: rgb(148 163 184 / 0.28); --string: rgb(148 163 184 / 0.3);
+ --cloud: rgb(226 232 240 / 0.07); --bird: rgb(203 213 225 / 0.45); --flag-op: 0.75;
+}
+.dark .ktm[data-phase="dawn"] { --rock: #4c4358; --snow: #e9c3cb; --haze: #4a3540; --hill: #2a2531; --wood: #26212d; --back: #221d27; --front: #16131a; --stupa: #ead6da; --tower: #dccbcf; --win: rgb(245 184 74 / 0.6); --lamp: #f59e0b; --sun: #f59e0b; --cloud: rgb(255 214 222 / 0.1); }
+.dark .ktm[data-phase="dusk"] { --rock: #4d3a4f; --snow: #e8b994; --haze: #4c2d30; --hill: #2a1f2b; --wood: #261c27; --back: #211922; --front: #150f16; --stupa: #e8d0c4; --tower: #dcc6bd; --win: #f5b84a; --lamp: #f97316; --sun: #f97316; --cloud: rgb(255 206 180 / 0.1); }
+.dark .ktm[data-phase="night"] { --rock: #222a42; --snow: #7f8cab; --haze: #151c33; --hill: #141a2c; --wood: #131829; --back: #101422; --front: #0a0d16; --stupa: #a9b3c8; --tower: #98a3b9; --win: #f5b84a; --lamp: #d97706; --flag-op: 0.45; }
+
+/* ---------- motion ---------- */
+.ktm path,
+.ktm rect,
+.ktm circle,
+.ktm ellipse,
+.ktm line {
+ transition: fill 2s ease, stroke 2s ease;
+}
+.ktm stop {
+ transition: stop-color 2s ease;
+}
+/* each layer rises into place as the footer scrolls in, farther layers first */
+.ktm-layer {
+ --p: clamp(0, (var(--draw) - var(--from, 0)) / 0.6, 1);
+ transform: translateY(calc((1 - var(--p)) * var(--rise, 40px)));
+ opacity: calc(0.15 + var(--p) * 0.85);
+}
+.ktm-fade {
+ transition: opacity 2.4s ease;
+}
+.ktm-win {
+ fill: var(--win);
+}
+.ktm-flick {
+ animation: ktm-flick 9s steps(1) infinite;
+}
+@keyframes ktm-flick {
+ 0%, 100% { opacity: 1; }
+ 46% { opacity: 0.15; }
+ 62% { opacity: 1; }
+}
+.ktm-star {
+ fill: #fff;
+ animation: ktm-twinkle 3.6s ease-in-out infinite;
+}
+@keyframes ktm-twinkle {
+ 0%, 100% { opacity: 0.9; }
+ 50% { opacity: 0.2; }
+}
+.ktm-flags {
+ transform-box: fill-box;
+ transform-origin: 50% 0;
+ animation: ktm-sway 6s ease-in-out infinite;
+}
+@keyframes ktm-sway {
+ 0%, 100% { transform: skewX(0.8deg); }
+ 50% { transform: skewX(-0.8deg); }
+}
+.ktm-clouds {
+ animation: ktm-drift 90s linear infinite alternate;
+}
+@keyframes ktm-drift {
+ to { transform: translateX(70px); }
+}
+.ktm-birds {
+ animation: ktm-fly 38s linear infinite;
+}
+@keyframes ktm-fly {
+ 0% { transform: translate(-60px, 110px); }
+ 100% { transform: translate(1500px, 40px); }
+}
+@media (prefers-reduced-motion: reduce) {
+ .ktm { --draw: 1 !important; }
+ .ktm-star, .ktm-flags, .ktm-flick, .ktm-clouds { animation: none; }
+ .ktm-birds { animation: none; transform: translate(1000px, 60px); }
+ .ktm-sky, .ktm path, .ktm rect, .ktm circle, .ktm-fade { transition: none; }
+}
